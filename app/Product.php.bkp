@@ -1,0 +1,19 @@
+<?php
+
+namespace App;
+
+//use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Kyslik\ColumnSortable\Sortable;
+use Kyslik\LaravelFilterable\Filterable;
+
+
+class Product extends Model
+{
+    protected $guarded  = [];
+
+    public $sortable = ['name', 'brand', 'quantity', 'price'];
+    use Sortable;
+    use Filterable;
+    use HasFactory;
+}
