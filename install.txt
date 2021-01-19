@@ -1,0 +1,20 @@
+Documentação para instalação do Desafio Veus.
+
+Passo 1:
+Criar no banco de dados o Banco Vsproject (caso deseja criar outro nome alterar o arquivo .env no diretório raiz do projeto).
+No mesmo arquivo .env alterar a url e o username e senha do banco em APP_URL, DB_USERNAME e DB_PASSWORD.
+
+Passo 2:
+Rodar as migrations do sistema:
+php artisan migrate
+
+Passo 3:
+O Sistema só funciona por autenticação, você deverá fazer um cadastro assim que entrar no sistema. 
+Após o mesmo poderá utilizar as funcionalidades do mesmo.
+
+Passo 4:
+
+Para fazer uma requisição api basta digitar:
+https://(nomedaaplicao)/api/v1/products
+com filtro
+https://(nomedaaplicao)/api/v1/products?q=seringa&filter:brand=BUNZL

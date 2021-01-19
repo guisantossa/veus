@@ -27,7 +27,9 @@ class ProductController extends Controller
 
         } else {
             $products = Product::sortable()
+                                ->where('products.name', 'like', '%'.$q.'%')
                                 ->where('products.deleted', '=', '0')
+                                ->filter($filters)
                                 ->paginate(5);
 
         }

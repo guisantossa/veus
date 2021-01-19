@@ -21,12 +21,13 @@
       <th scope="row">{{ $product->id }}</th>
       <td>{{ $product->name }}</td>
       <td>{{ $product->brand }}</td>
-      <td>{{ $product->price }}</td>
+      <td>R$ {{ number_format($product->price, 2, ',', '.') }}</td>
       <td>{{ $product->quantity }}</td>
       <td>
-        <a href="/produtos/{{ $product->id }}"><ion-icon name="search-circle-outline"></ion-icon></a>
-        <a href="/produtos/edit/{{ $product->id }}"><ion-icon name="create-outline"></ion-icon></a>
-        <a href="/produtos/delete"><ion-icon name="trash-outline"></ion-icon></a>
+        <a href="/produtos/{{ $product->id }}" ><ion-icon name="search-circle-outline" title='Vizualizar'></ion-icon>Vizualizar</a>|
+        <a href="/produtos/edit/{{ $product->id }}"><ion-icon name="create-outline" title='editar'></ion-icon>Editar</a>|
+        <a href="/produtos/addQuantity/{{ $product->id }}"><ion-icon name="enter-outline"></ion-icon>Entrada</a>|
+        <a href="/produtos/delete/{{ $product->id }}"><ion-icon name="trash-outline" title='Excluir'></ion-icon>Excluir</a>|
       </td>
     </tr>
   @endforeach
@@ -36,23 +37,7 @@
 <div class="d-flex justify-content-center">
     {!! $products->appends(\Request::except('page'))->render() !!}
 </div>
-
-<div id="event-create-container" class="col-md-6 offset-md-3">
-  <nav aria-label="breadcrumb">
-      <ol class="breadcrumb">
-          <li class="breadcrumb-item active" aria-current="page">Procurar Produtos</li>
-      </ol>
-  </nav>
-  <form action="/produtos" method="GET" class="form-horizontal">
-    <div class="form-group">
-      <label for="title">Produto:</label>
-      <input type="text" class="form-control" id="q" name="q" placeholder="Produto">
-    </div>
-    <input type="submit" class="btn btn-primary" value="Procurar">
-  </form>
-</div>
-
-  
+ 
 </div>
 
 @endsection

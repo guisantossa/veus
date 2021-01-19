@@ -14,6 +14,7 @@ use App\Http\Controllers\ProductController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/', [ProductController::class, 'index'])->middleware('auth');
 
 Route::get('/produtos', [ProductController::class, 'index'])->middleware('auth');
@@ -22,6 +23,9 @@ Route::get('/produtos/edit/{id}', [ProductController::class, 'edit'])->middlewar
 Route::get('/produtos/{id}', [ProductController::class, 'show'])->middleware('auth');
 Route::post('/produtos', [ProductController::class, 'store'])->middleware('auth');
 Route::put('produtos/update/{id}',[ProductController::class, 'update'])->middleware('auth');
+Route::get('/produtos/addQuantity/{id}', [ProductController::class, 'addQuantity'])->middleware('auth');
+Route::put('/produtos/updateQuantity/{id}', [ProductController::class, 'updateQuantity'])->middleware('auth');
+Route::get('/produtos/delete/{id}', [ProductController::class, 'destroy'])->middleware('auth');
 
 
 
@@ -31,8 +35,8 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'ProductController@index')->name('home');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'ProductController@index')->name('home');
