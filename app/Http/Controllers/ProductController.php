@@ -23,12 +23,12 @@ class ProductController extends Controller
                                 ->where('products.name', 'like', '%'.$q.'%')
                                 ->where('products.deleted', '=', '0')
                                 ->filter($filters)
-                                ->paginate(5);
+                                ->paginate(20);
 
         } else {
             $products = Product::sortable()
                                 ->where('products.deleted', '=', '0')
-                                ->paginate(5);
+                                ->paginate(20);
 
         }
 

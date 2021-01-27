@@ -9,10 +9,15 @@ Rodar as migrations do sistema:
 php artisan migrate
 
 Passo 3:
-O Sistema só funciona por autenticação, você deverá fazer um cadastro assim que entrar no sistema. 
-Após o mesmo poderá utilizar as funcionalidades do mesmo.
+para incrementar dados ao sistema (produtos), rodar o comando no terminal:
+php artisan db:seed
 
 Passo 4:
+O Sistema só funciona por autenticação, você deverá fazer login para entrar no sistema. 
+Login: email@email.com
+senha: 123456789
+
+Passo 5:
 
 Para fazer uma requisição api basta digitar:
 https://(nomedaaplicao)/api/v1/products
